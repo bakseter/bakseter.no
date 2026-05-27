@@ -6,7 +6,7 @@ metadata:
 spec:
   parentRefs:
     - name: cloudflared-gateway
-      namespace: envoy-gateway-system
+      namespace: cloudflared
       group: gateway.networking.k8s.io # for argocd diff
       kind: Gateway
 
