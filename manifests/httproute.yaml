@@ -5,9 +5,8 @@ metadata:
   namespace: bakseter-net
 spec:
   parentRefs:
-    - name: traefik-gateway
-      namespace: traefik
-      sectionName: public
+    - name: cloudflared-gateway
+      namespace: envoy-gateway-system
       group: gateway.networking.k8s.io # for argocd diff
       kind: Gateway
 
