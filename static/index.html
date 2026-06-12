@@ -6,31 +6,11 @@
 
     <title>bakseter.net</title>
 
-    <style>
-      body {
-        display: none;
-      }
-    </style>
-
-    <script>
-      const theme = localStorage.getItem("theme");
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.add("light");
-      }
-    </script>
-
     <script
       src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.0"
-      integrity="sha384-d5Pc0U2WLIrcpPz/5dTNl91xwJLvbdD+V3+kao+QnRyFRNDW1mKqxoM9b6fzPxsS"
+      integrity="sha384-AIH1kL7JmmReCxSwiSyaRNwzSFO7h4Ir4F/PO28EKezqFza1LwIMgEPLd83KwmZ4"
       crossorigin="anonymous"
     ></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-      };
-    </script>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap"
@@ -52,72 +32,24 @@
   >
     <main class="min-h-screen px-6 py-8 md:px-10">
       <div class="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col">
-        <header class="flex items-center justify-end">
-          <label class="inline-flex items-center cursor-pointer">
-            <div class="relative">
-              <input id="themeToggle" type="checkbox" class="sr-only peer" />
-              <div
-                class="h-9 w-16 rounded-full border border-stone-300 bg-white/80 shadow-sm transition dark:border-white/10 dark:bg-white/5"
-              ></div>
-              <div
-                id="themeDot"
-                class="absolute left-1 top-1 flex h-7 w-7 items-center justify-center rounded-full bg-stone-800 text-sm text-white shadow-sm transition-all duration-300 dark:bg-stone-200 dark:text-stone-900"
-              >
-                <span id="icon">☀</span>
-              </div>
-            </div>
-          </label>
-        </header>
-
         <section class="flex flex-1 flex-col justify-center">
           <div class="mx-auto w-full max-w-4xl">
             <div class="text-center">
-              <p
-                class="mb-4 text-sm tracking-[0.2em] text-stone-500 uppercase dark:text-stone-500"
-              >
-                bakseter.net
-              </p>
-
               <h1
                 class="text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 md:text-6xl"
               >
-                Hi, I’m Andreas
+                Andreas
               </h1>
 
               <div
                 class="mx-auto mt-6 max-w-3xl space-y-4 text-sm leading-7 text-stone-600 dark:text-stone-400 md:text-base"
               >
-                <p>
-                  I’m a platform engineer with a strong interest in Kubernetes,
-                  cloud native infrastructure, infrastructure as code, and
-                  building internal platforms that are simple to operate and
-                  pleasant to use.
-                </p>
-
-                <p>
-                  Most of my work sits at the intersection of systems,
-                  automation, and developer experience. I design reliable
-                  foundations, improve workflows, and make complex tooling feel
-                  a little more approachable.
-                </p>
-
-                <hr />
-
-                <p>
-                  I also have a strong interest in Linux and the open source
-                  ecosystem. In my free time, I enjoy tinkering with my homelab,
-                  improving my Linux/Vim setup, and generally making random apps
-                  for personal use. Most of what I do is available on my GitHub.
-                </p>
-              </div>
-
               <div
                 class="mx-auto mt-10 max-w-2xl border-t border-stone-200 pt-6 dark:border-white/10"
               >
                 <p
                   class="text-md uppercase tracking-[0.18em] text-stone-500 dark:text-stone-500"
                 >
-                  Selected projects
                 </p>
               </div>
             </div>
@@ -261,38 +193,5 @@
         </footer>
       </div>
     </main>
-
-    <script>
-      const root = document.documentElement;
-      const toggle = document.getElementById("themeToggle");
-      const icon = document.getElementById("icon");
-      const dot = document.getElementById("themeDot");
-
-      const saved = localStorage.getItem("theme");
-
-      function applyTheme(isDark) {
-        if (isDark) {
-          root.classList.add("dark");
-          dot.classList.add("translate-x-7");
-          icon.textContent = "☾";
-          toggle.checked = true;
-          localStorage.setItem("theme", "dark");
-        } else {
-          root.classList.remove("dark");
-          dot.classList.remove("translate-x-7");
-          icon.textContent = "☀";
-          toggle.checked = false;
-          localStorage.setItem("theme", "light");
-        }
-      }
-
-      applyTheme(saved === "dark");
-
-      toggle.addEventListener("change", () => {
-        applyTheme(toggle.checked);
-      });
-
-      document.body.style.display = "block";
-    </script>
   </body>
 </html>
