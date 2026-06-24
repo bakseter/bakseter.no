@@ -2,7 +2,7 @@ apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
   name: web
-  namespace: bakseter-net
+  namespace: bakseter-no
 spec:
   endpointSelector: {}
 

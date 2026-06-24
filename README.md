@@ -1,4 +1,4 @@
-# bakseter.net
+# bakseter.no
 
 My homepage.
 

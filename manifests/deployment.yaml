@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: web
+  namespace: bakseter-no
   annotations:
     keel.sh/match-tag: 'true'
     keel.sh/policy: force
     keel.sh/trigger: poll
-  name: web
-  namespace: bakseter-net
 spec:
   replicas: 2
   revisionHistoryLimit: 5
@@ -27,7 +27,7 @@ spec:
               topologyKey: bakseter.net/physical-node
       containers:
         - name: web
-          image: ghcr.io/bakseter/bakseter.net:latest
+          image: ghcr.io/bakseter/bakseter.no:latest
           ports:
             - containerPort: 8080
           volumeMounts:
