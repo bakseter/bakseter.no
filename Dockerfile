@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:1.31.2-alpine-slim@sha256:653c4c45a002a826b4c6c0902c7e21890ffdcae7c464866da79504c93d804f61
+FROM nginxinc/nginx-unprivileged:1.31.2-alpine-slim@sha256:ee7751c78fd1a51a8c12ac5a0ab15b2de2d486df155ef95bf52db9cef7de0d2d
 
 USER root
 
