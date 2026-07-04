@@ -3,5 +3,13 @@
   "extends": ["config:recommended", "helpers:pinGitHubActionDigestsToSemver"],
   "commitMessagePrefix": "⬆️",
   "prHourlyLimit": 0,
-  "minimumReleaseAge": "3 days"
+  "minimumReleaseAge": "3 days",
+  "rangeStrategy": "pin",
+  "packageRules": [
+    {
+      "description": "Automerge non-major updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ]
 }
