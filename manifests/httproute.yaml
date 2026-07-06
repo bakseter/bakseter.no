@@ -5,10 +5,10 @@ metadata:
   namespace: bakseter-no
 spec:
   parentRefs:
-    - name: cloudflared-gateway
-      namespace: cloudflared
-      group: gateway.networking.k8s.io # for argocd diff
+    - group: gateway.networking.k8s.io
       kind: Gateway
+      name: cloudflared-gateway
+      namespace: cloudflared
 
   hostnames:
     - bakseter.no
@@ -23,8 +23,8 @@ spec:
             value: /favicon.ico
 
       backendRefs:
-        - name: web
+        - group: ''
+          kind: Service
+          name: web
           port: 80
-          group: '' # for argocd diff
-          kind: Service # for argocd diff
-          weight: 1 # for argocd diff
+          weight: 1

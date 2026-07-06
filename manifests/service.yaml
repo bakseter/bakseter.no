@@ -8,5 +8,5 @@ spec:
     - port: 80
       targetPort: 8080
   selector:
-    app: web
+    app.kubernetes.io/name: web
   type: ClusterIP

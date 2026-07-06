@@ -12,18 +12,18 @@ spec:
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      app: web
+      app.kubernetes.io/name: web
   template:
     metadata:
       labels:
-        app: web
+        app.kubernetes.io/name: web
     spec:
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchLabels:
-                  app: web
+                  app.kubernetes.io/name: web
               topologyKey: bakseter.net/physical-node
       containers:
         - name: web
@@ -34,11 +34,11 @@ spec:
             - name: nginx-tmp
               mountPath: /tmp/nginx
           securityContext:
-            readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
+            readOnlyRootFilesystem: true
           resources:
             requests:
               cpu: 10m
