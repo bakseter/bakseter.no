@@ -39,6 +39,12 @@ spec:
               drop:
                 - ALL
             readOnlyRootFilesystem: true
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 10
           resources:
             requests:
               cpu: 10m
