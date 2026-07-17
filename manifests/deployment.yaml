@@ -25,6 +25,10 @@ spec:
                 matchLabels:
                   app.kubernetes.io/name: bakseter-no
               topologyKey: bakseter.net/physical-node
+      dnsConfig:
+        options:
+          - name: ndots
+            value: '1'
       containers:
         - name: bakseter-no
           image: ghcr.io/bakseter/bakseter.no:latest
