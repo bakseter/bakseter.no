@@ -27,6 +27,18 @@ spec:
   egress:
     - toEndpoints:
         - matchLabels:
+            k8s:io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: '53'
+              protocol: ANY
+          rules:
+            dns:
+              - matchName: 'alloy.monitoring.svc.cluster.local'
+
+    - toEndpoints:
+        - matchLabels:
             k8s:io.kubernetes.pod.namespace: monitoring
             app.kubernetes.io/name: alloy
       toPorts:
