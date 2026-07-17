@@ -10,7 +10,7 @@ spec:
     - fromEndpoints:
         - matchLabels:
             k8s:io.kubernetes.pod.namespace: envoy-gateway-system
-            gateway.envoyproxy.io/owning-gateway-name: cloudflared-gateway
+            gateway.envoyproxy.io/owning-gateway-name: cloudflared
       toPorts:
         - rules:
             http:
