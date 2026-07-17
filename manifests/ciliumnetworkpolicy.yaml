@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: web
+  name: bakseter-no
   namespace: bakseter-no
 spec:
   endpointSelector: {}
@@ -18,8 +18,18 @@ spec:
                 method: GET
               - path: /favicon.ico
                 method: GET
+              - path: /status
+                method: GET
           ports:
             - port: '8080'
               protocol: TCP
 
-  egress: []
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: monitoring
+            app.kubernetes.io/name: alloy
+      toPorts:
+        - ports:
+            - port: '4317'
+              protocol: TCP

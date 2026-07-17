@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: bakseter-no
   namespace: bakseter-no
 spec:
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app.kubernetes.io/name: web
+    app.kubernetes.io/name: bakseter-no
   type: ClusterIP

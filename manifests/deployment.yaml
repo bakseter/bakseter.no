@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: bakseter-no
   namespace: bakseter-no
   annotations:
     keel.sh/match-tag: 'true'
@@ -12,21 +12,21 @@ spec:
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      app.kubernetes.io/name: web
+      app.kubernetes.io/name: bakseter-no
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: web
+        app.kubernetes.io/name: bakseter-no
     spec:
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchLabels:
-                  app.kubernetes.io/name: web
+                  app.kubernetes.io/name: bakseter-no
               topologyKey: bakseter.net/physical-node
       containers:
-        - name: web
+        - name: bakseter-no
           image: ghcr.io/bakseter/bakseter.no:latest
           ports:
             - containerPort: 8080
@@ -41,7 +41,7 @@ spec:
             readOnlyRootFilesystem: true
           readinessProbe:
             httpGet:
-              path: /
+              path: /status
               port: 8080
             initialDelaySeconds: 3
             periodSeconds: 10
