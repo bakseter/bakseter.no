@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+---
+<article class="mx-auto mt-16 w-full max-w-3xl flex-1">
+  <header class="mb-10 border-b border-stone-200 pb-8 dark:border-white/10">
+      <time datetime="{{ page.date | htmlDateString }}" class="font-mono text-sm text-stone-500">
+      {{ page.date | readableDate }}
+    </time>
+    <h1 class="mt-2 text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
+      {{ title }}
+    </h1>
+    {% if description %}
+      <p class="mt-4 text-sm leading-7 text-stone-600 dark:text-stone-400 md:text-base">{{ description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="prose prose-h2:text-3xl prose-h3:text-xl prose-h4:text-md prose-stone max-w-none text-sm leading-7 md:text-base dark:prose-invert prose-headings:tracking-tight prose-a:underline-offset-4 prose-pre:rounded-xl">
+    {{ content | safe }}
+  </div>
+
+  <a href="/blog/" class="mt-12 inline-block text-sm text-stone-500 transition hover:text-stone-900 dark:hover:text-stone-200">
+    ← all posts
+  </a>
+</article>

@@ -1,0 +1,14 @@
+<ul class="mt-4 divide-y divide-stone-200 border-y border-stone-200 dark:divide-white/10 dark:border-white/10">
+  {% for post in posts %}
+    <li>
+      <a href="{{ post.url }}" class="group flex flex-col gap-1 py-4 md:flex-row md:items-baseline md:gap-6">
+        <time datetime="{{ post.date | htmlDateString }}" class="shrink-0 font-mono text-sm text-stone-500 md:w-28">
+          {{ post.date | readableDate }}
+        </time>
+        <span class="text-stone-900 transition group-hover:underline group-hover:underline-offset-4 dark:text-stone-100">
+          {{ post.data.title }}
+        </span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
