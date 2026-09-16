@@ -12,17 +12,21 @@ spec:
             k8s:io.kubernetes.pod.namespace: envoy-gateway-system
             gateway.envoyproxy.io/owning-gateway-name: cloudflared
       toPorts:
-        - rules:
-            http:
-              - path: /
-                method: GET
-              - path: /favicon.ico
-                method: GET
-              - path: /status
-                method: GET
-          ports:
+        - ports:
             - port: '8080'
               protocol: TCP
+          rules:
+            http:
+              - method: 'GET|HEAD'
+                path: '/'
+              - method: 'GET|HEAD'
+                path: '/(favicon\.ico|feed\.xml|status)'
+              - method: 'GET|HEAD'
+                path: '/css/[a-z0-9._-]+\.css'
+              - method: 'GET|HEAD'
+                path: '/blog/?'
+              - method: 'GET|HEAD'
+                path: '/blog/[a-z0-9-]+/?'
 
   egress:
     - toEndpoints:
