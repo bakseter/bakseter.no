@@ -1,5 +1,5 @@
 # bakseter.no
 
-My homepage.
+My personal homepage.
 
 Hosted on my [homelab](https://github.com/bakseter/homelab).

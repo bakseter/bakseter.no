@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
+    <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ description or site.description }}" />
 
     <meta property="og:type" content="{% if tags and 'posts' in tags %}article{% else %}website{% endif %}" />
@@ -27,8 +27,8 @@
   <body class="bg-stone-50 text-stone-700 dark:bg-[#111318] dark:text-stone-300">
     <main class="min-h-screen px-6 py-8 md:px-10">
       <div class="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col">
-        <nav class="mx-auto flex w-full max-w-4xl items-center justify-between text-sm text-stone-500">
-          <a href="/" class="transition hover:text-stone-900 dark:hover:text-stone-200">bakseter.no</a>
+        <nav class="mx-auto flex w-full max-w-4xl items-center justify-between text-lg text-stone-500">
+          <a href="/" class="transition hover:text-stone-900 dark:hover:text-stone-200">home</a>
           <div class="flex items-center gap-5">
             <a href="/blog/" class="transition hover:text-stone-900 dark:hover:text-stone-200">blog</a>
             <a href="/feed.xml" class="transition hover:text-stone-900 dark:hover:text-stone-200">rss</a>
@@ -40,12 +40,19 @@
         <footer class="pt-10">
           <div class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 border-t border-stone-200 pt-6 text-sm text-stone-500 dark:border-white/10 md:flex-row">
             <div class="flex items-center gap-5">
-              <a href="{{ site.github }}" class="transition hover:text-stone-900 dark:hover:text-stone-200">github</a>
-              <a href="{{ site.linkedin }}" class="transition hover:text-stone-900 dark:hover:text-stone-200">linkedin</a>
-              <a href="mailto:{{ site.email }}" class="transition hover:text-stone-900 dark:hover:text-stone-200">email</a>
+              <p>contact me on</p>
+              <a class="underline" href="{{ site.linkedin }}" class="transition hover:text-stone-900 dark:hover:text-stone-200">linkedin</a>
+              <p>or</p>
+              <a class="underline" href="{{ site.github }}" class="transition hover:text-stone-900 dark:hover:text-stone-200">github</a>
             </div>
             <p>© {% year %} {{ site.author }}</p>
-            <p>hosted on my homelab</p>
+            <div>
+              <svg class="inline mx-1" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
+                <circle cx="4" cy="4" r="4" fill="#22c55e" />
+              </svg>
+              <p class="inline">hosted on my</p>
+              <a class="underline" href="https://github.com/bakseter/homelab">homelab</a>
+            </div>
           </div>
         </footer>
       </div>

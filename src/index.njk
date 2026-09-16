@@ -3,37 +3,48 @@ layout: layouts/base.njk
 ---
 <section class="flex-1 py-16">
   <div class="mx-auto w-full max-w-4xl">
-    <h1 class="text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100 md:text-3xl">
-      {{ site.author }}
-    </h1>
-    <p class="mt-4 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400 md:text-base">
-      I enjoy working with Kubernetes, Cloud Native technologies and infrastructure.
-    </p>
+    <div class="flex items-center gap-5">
+      <img
+        src="/avatar.png"
+        alt="Photo of Andreas"
+        width="80"
+        height="80"
+        class="size-24 shrink-0 rounded-full object-cover ring-2 ring-stone-200 ring-offset-2 ring-offset-stone-50 dark:ring-white/10 dark:ring-offset-[#111318] dark:brightness-90 md:size-28"
+      />
+      <div>
+        <h1 class="text-2xl font-bold text-stone-900 dark:text-stone-100 md:text-3xl">
+          👋 Hi, I'm Andreas
+        </h1>
+        <p class="mt-2 max-w-2xl text-sm leading-7 text-stone-600 dark:text-stone-400 md:text-base">
+          I enjoy working with Kubernetes, Cloud Native technologies and infrastructure.
+        </p>
+      </div>
+    </div>
 
     <div class="mt-16">
-      <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100">Projects</h2>
+      <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100">🔨 Things I've Built</h2>
       <p class="mt-1 text-sm leading-7 text-stone-600 dark:text-stone-400">
-        A mix of work-related and hobby projects.
+        A mix of work-related stuff and personal projects.
       </p>
 
-    <ul class="mt-5 space-y-6">
-      {% for project in projects %}
-        <li class="grid gap-1 md:grid-cols-[5rem_1fr]">
-          <span class="font-mono text-sm text-stone-500">{{ project.year }}</span>
-          <div>
-            <a href="{{ project.url }}" class="font-semibold text-stone-900 underline decoration-stone-300 underline-offset-4 hover:decoration-current dark:text-stone-100 dark:decoration-stone-600">{{ project.name }}</a>
-            <p class="mt-1 text-sm leading-7 text-stone-600 dark:text-stone-400">{{ project.description }}</p>
-            <p class="font-mono text-xs text-stone-500">{{ project.stack }}</p>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
+      <ul class="mt-5 space-y-6">
+        {% for project in projects %}
+          <li class="grid gap-1 md:grid-cols-[5rem_1fr]">
+            <span class="font-mono text-sm text-stone-500">{{ project.year }}</span>
+            <div>
+              <a href="{{ project.url }}" class="font-semibold text-stone-900 underline decoration-stone-300 underline-offset-4 hover:decoration-current dark:text-stone-100 dark:decoration-stone-600">{{ project.name }}</a>
+              <p class="mt-1 text-sm leading-7 text-stone-600 dark:text-stone-400">{{ project.description }}</p>
+              <p class="font-mono text-xs text-stone-500">{{ project.stack }}</p>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
 
     {% if collections.posts.length %}
       <div class="mt-16">
         <div class="flex items-baseline justify-between">
-          <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100">Blog posts</h2>
+          <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100">🗒️ Blog posts</h2>
           <a href="/blog/" class="text-sm text-stone-500 transition hover:text-stone-900 dark:hover:text-stone-200">see all posts</a>
         </div>
         {% set posts = collections.posts | latest(3) %}
