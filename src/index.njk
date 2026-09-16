@@ -44,7 +44,7 @@ layout: layouts/base.njk
     {% if collections.posts.length %}
       <div class="mt-16">
         <div class="flex items-baseline justify-between">
-          <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100">🗒️ Blog posts</h2>
+          <h2 class="text-xl font-semibold text-stone-900 dark:text-stone-100">🗒️ Blog Posts</h2>
           <a href="/blog/" class="text-sm text-stone-500 transition hover:text-stone-900 dark:hover:text-stone-200">see all posts</a>
         </div>
         {% set posts = collections.posts | latest(3) %}
