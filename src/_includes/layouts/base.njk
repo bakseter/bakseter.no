@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ description or site.description }}" />
+
+    <meta property="og:type" content="{% if tags and 'posts' in tags %}article{% else %}website{% endif %}" />
+    <meta property="og:title" content="{{ title or site.author }}" />
+    <meta property="og:description" content="{{ description or site.description }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml" title="{{ site.title }}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body class="bg-stone-50 text-stone-700 dark:bg-[#111318] dark:text-stone-300">
+    <main class="min-h-screen px-6 py-8 md:px-10">
+      <div class="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col">
+        <nav class="mx-auto flex w-full max-w-4xl items-center justify-between text-sm text-stone-500">
+          <a href="/" class="transition hover:text-stone-900 dark:hover:text-stone-200">bakseter.no</a>
+          <div class="flex items-center gap-5">
+            <a href="/blog/" class="transition hover:text-stone-900 dark:hover:text-stone-200">blog</a>
+            <a href="/feed.xml" class="transition hover:text-stone-900 dark:hover:text-stone-200">rss</a>
+          </div>
+        </nav>
+
+        {{ content | safe }}
+
+        <footer class="pt-10">
+          <div class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 border-t border-stone-200 pt-6 text-sm text-stone-500 dark:border-white/10 md:flex-row">
+            <div class="flex items-center gap-5">
+              <a href="{{ site.github }}" class="transition hover:text-stone-900 dark:hover:text-stone-200">github</a>
+              <a href="{{ site.linkedin }}" class="transition hover:text-stone-900 dark:hover:text-stone-200">linkedin</a>
+              <a href="mailto:{{ site.email }}" class="transition hover:text-stone-900 dark:hover:text-stone-200">email</a>
+            </div>
+            <p>© {% year %} {{ site.author }}</p>
+            <p>hosted on my homelab</p>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>

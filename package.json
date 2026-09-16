@@ -1,0 +1,16 @@
+{
+  "name": "bakseter.no",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "eleventy --serve & tailwindcss -i src/css/style.css -o _site/css/style.css --watch",
+    "build": "eleventy && tailwindcss -i src/css/style.css -o _site/css/style.css --minify"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6",
+    "@11ty/eleventy-plugin-rss": "3.0.0",
+    "@tailwindcss/cli": "4.3.3",
+    "@tailwindcss/typography": "0.5.20",
+    "tailwindcss": "4.3.3"
+  }
+}
