@@ -17,9 +17,6 @@ USER root
 RUN mkdir -p /tmp/nginx && \
     chown -R nginx:nginx /tmp/nginx
 
-RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
-    ln -sf /dev/stderr /var/log/nginx/error.log
-
 USER nginx
 
 COPY --from=build /app/_site/ /usr/share/nginx/html/
