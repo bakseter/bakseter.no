@@ -10,7 +10,7 @@ COPY src/ ./src/
 RUN npm run build
 
 
-FROM nginxinc/nginx-unprivileged:1.31.7-alpine-otel@sha256:456c18e3dbfe8ba7f807e479f33aaf0a8d7e4fd4de8dbfc195f2b5262414e5fb
+FROM nginxinc/nginx-unprivileged:1.31.7-alpine-otel@sha256:d3c3765065f95ae1b98396275d445b687a1a0611561505afa584335359209213
 
 USER root
 
