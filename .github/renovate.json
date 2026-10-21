@@ -3,14 +3,24 @@
   "extends": ["config:recommended", "helpers:pinGitHubActionDigestsToSemver"],
   "commitMessagePrefix": "⬆️",
   "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
   "minimumReleaseAge": "3 days",
-  "prCreation": "not-pending",
   "rangeStrategy": "pin",
   "packageRules": [
     {
       "description": "Automerge non-major updates",
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
+    },
+    {
+      "description": "Automerge devDependencies",
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    },
+    {
+      "description": "Only Docker Hub returns image timestamps; without this, GHCR/Quay/ECR/registry.k8s.io are held forever",
+      "matchDatasources": ["docker"],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     }
   ]
 }
