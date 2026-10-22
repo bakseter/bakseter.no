@@ -20,7 +20,7 @@ spec:
               - method: 'GET|HEAD'
                 path: '/'
               - method: 'GET|HEAD'
-                path: '/(favicon\.ico|feed\.xml|status)'
+                path: '/(favicon\.ico|feed\.xml|status|robots\.txt)'
               - method: 'GET|HEAD'
                 path: '/css/[a-z0-9._-]+\.css'
               - method: 'GET|HEAD'
