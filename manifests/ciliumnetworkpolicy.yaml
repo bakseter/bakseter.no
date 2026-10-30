@@ -28,6 +28,8 @@ spec:
               - method: 'GET|HEAD'
                 path: '/blog/[a-z0-9-]+/?'
               - method: 'GET|HEAD'
+                path: '/(cv|cv-no)'
+              - method: 'GET|HEAD'
                 path: '/[a-zA-Z0-9._-]+\.(pdf|png|jpg|webp|svg)'
 
   egress:
