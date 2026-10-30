@@ -1,0 +1,231 @@
+{% macro icon(paths) %}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="size-3 shrink-0 text-stone-400">{{ paths | safe }}</svg>
+{% endmacro %}
+
+{% macro period(pill) %}
+<span class="inline-block rounded-full px-2 py-[2px] font-mono text-[10.5px] font-medium {{ 'bg-green-100 text-green-800' if 'resent' in (pill | lower) or 'nå' in (pill | lower) else 'bg-stone-100 text-stone-700' }}">{{ pill }}</span>
+{% endmacro %}
+
+{% macro highlights_list(hs) %}
+  {% if hs and hs | length %}
+    {% if hs | join('') | length <= 80 %}
+      <p class="mt-1 text-[11px] leading-relaxed text-pretty text-stone-600">{{ hs | join(' · ') }}</p>
+    {% else %}
+      <ul class="mt-1.5 space-y-1">
+        {% for h in hs %}
+          <li class="flex gap-2 text-[11px] leading-relaxed text-pretty text-stone-600"><span class="shrink-0 text-stone-400">–</span><span>{{ h }}</span></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{% set icons = {
+  location: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  mail: '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+  globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  github: '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>',
+  linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>'
+} %}
+
+<div class="sheet flex flex-col">
+  <header>
+    <div class="flex items-center gap-4">
+      <img
+        src="/avatar.png"
+        alt="{% if lang == 'no' %}Bilde av {{ cv.name }}{% else %}Photo of {{ cv.name }}{% endif %}"
+        width="64"
+        height="64"
+        class="size-16 shrink-0 rounded-full object-cover ring-2 ring-stone-200"
+      />
+      <div>
+        <h1 class="text-[34px] font-bold leading-none tracking-tight text-stone-900">{{ cv.name }}</h1>
+        <p class="mt-1.5 text-[14px] font-medium text-green-700">{{ cv.title }}</p>
+      </div>
+    </div>
+    <ul class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] leading-none text-stone-500">
+      {% if cv.location %}
+        <li class="flex items-center gap-1.5">{{ icon(icons.location) }}{{ cv.location }}</li>
+      {% endif %}
+      {% if cv.email %}
+        <li class="flex items-center gap-1.5">{{ icon(icons.mail) }}{% if '@' in cv.email %}<a href="mailto:{{ cv.email }}" class="hover:text-stone-900">{{ cv.email }}</a>{% else %}{{ cv.email }}{% endif %}</li>
+      {% endif %}
+      {% if cv.website %}
+        <li class="flex items-center gap-1.5">{{ icon(icons.globe) }}<a href="https://{{ cv.website }}" class="hover:text-stone-900">{{ cv.website }}</a></li>
+      {% endif %}
+      {% if cv.github %}
+        <li class="flex items-center gap-1.5">{{ icon(icons.github) }}<a href="https://{{ cv.github }}" class="hover:text-stone-900">{{ cv.github }}</a></li>
+      {% endif %}
+      {% if cv.linkedin %}
+        <li class="flex items-center gap-1.5">{{ icon(icons.linkedin) }}<a href="https://{{ cv.linkedin }}" class="hover:text-stone-900">{{ cv.linkedin }}</a></li>
+      {% endif %}
+    </ul>
+  </header>
+
+  {% if cv.summary %}
+    <p class="mt-3 text-[12px] leading-relaxed text-pretty text-stone-600">{{ cv.summary }}</p>
+  {% endif %}
+
+  {% if cv.experience %}
+    <section class="mt-3">
+      <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
+        <span class="font-mono text-[10px] text-green-600">01</span>
+        <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.experience | default('Experience') }}</span>
+      </h2>
+      <div class="mt-2.5 space-y-4">
+        {% for job in cv.experience %}
+          <article class="page-break-avoid">
+            <div class="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1">
+              <div>
+                <h3 class="text-[14px] font-semibold text-stone-900">{{ job.role }}{% if job.company %}<span class="font-normal text-stone-500"> · {{ job.company }}</span>{% endif %}</h3>
+                {% if job.location %}<p class="text-[11.5px] text-stone-500">{{ job.location }}</p>{% endif %}
+              </div>
+              <div class="pt-0.5">{{ period(job.period) }}</div>
+            </div>
+
+            {% if job.assignments %}
+              <p class="mt-3 font-mono text-[10px] uppercase tracking-wide text-green-700">{{ cv.sections.projects | default('Projects') }}</p>
+              <div class="mt-1.5 space-y-4 border-l-2 border-green-600/25 pl-4">
+                {% for assignment in job.assignments %}
+                  <div class="page-break-avoid">
+                    <div class="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1">
+                      <h4 class="pt-0.5 text-[12.5px] font-semibold text-stone-900">{{ assignment.client }}{% if assignment.role %}<span class="font-normal text-stone-500"> — {{ assignment.role }}</span>{% endif %}</h4>
+                      <div>{{ period(assignment.period) }}</div>
+                    </div>
+                    {% if assignment.summary %}
+                      <p class="mt-0.5 text-[11px] leading-relaxed text-pretty text-stone-600">{{ assignment.summary }}</p>
+                    {% endif %}
+                    {% if assignment.highlights %}{{ highlights_list(assignment.highlights) }}{% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+            {% elif job.highlights %}{{ highlights_list(job.highlights) }}{% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if cv.education %}
+    <section class="mt-3">
+      <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
+        <span class="font-mono text-[10px] text-green-600">02</span>
+        <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.education | default('Education') }}</span>
+      </h2>
+      <div class="mt-2.5 space-y-4">
+        {% for edu in cv.education %}
+          <article class="page-break-avoid">
+            <div class="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1">
+              <div>
+                <h3 class="text-[14px] font-semibold text-stone-900">{{ edu.degree }}</h3>
+                <p class="text-[11.5px] text-stone-500">{{ edu.school }}</p>
+                {% if edu.details %}
+                  <p class="mt-1 text-[11px] leading-relaxed text-pretty text-stone-600">{{ edu.details }}</p>
+                {% endif %}
+              </div>
+              <div class="pt-0.5">{{ period(edu.period) }}</div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if cv.volunteering and cv.volunteering.length %}
+    <section class="mt-3">
+      <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
+        <span class="font-mono text-[10px] text-green-600">03</span>
+        <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.volunteering | default('Volunteering') }}</span>
+      </h2>
+      <div class="mt-2.5 space-y-3">
+        {% for vol in cv.volunteering %}
+          <article class="page-break-avoid">
+            <div class="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1">
+              <div>
+                <h3 class="text-[13px] font-semibold text-stone-900">{{ vol.role }}{% if vol.org %}<span class="font-normal text-stone-500"> · {{ vol.org }}</span>{% endif %}</h3>
+                {% if vol.location %}<p class="text-[11px] text-stone-500">{{ vol.location }}</p>{% endif %}
+                {% if vol.details %}<p class="mt-1 text-[11px] leading-relaxed text-pretty text-stone-600">{{ vol.details }}</p>{% endif %}
+              </div>
+              <div class="pt-0.5">{{ period(vol.period) }}</div>
+            </div>
+            {% if vol.highlights %}{{ highlights_list(vol.highlights) }}{% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if cv.certifications and cv.certifications.length %}
+    <section class="mt-3">
+      <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
+        <span class="font-mono text-[10px] text-green-600">04</span>
+        <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.certifications | default('Certifications') }}</span>
+      </h2>
+      <ul class="mt-2.5 space-y-2">
+        {% for cert in cv.certifications %}
+          <li class="page-break-avoid">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+              <span class="text-[12px] font-semibold text-stone-900">{{ cert.name }}</span>
+              {% if cert.issuer or cert.year %}<span class="font-mono text-[10px] font-medium text-stone-500">{{ cert.issuer }}{% if cert.issuer and cert.year %} · {% endif %}{{ cert.year }}</span>{% endif %}
+            </div>
+            {% if cert.description %}<p class="mt-0.5 text-[11px] leading-relaxed text-pretty text-stone-600">{{ cert.description }}</p>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  <section class="mt-3">
+    <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
+      <span class="font-mono text-[10px] text-green-600">05</span>
+      <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.personalProjects | default('Personal Projects') }}</span>
+    </h2>
+    <ul class="mt-2.5 space-y-2">
+      {% for project in projects %}
+        {% if loop.index <= 2 %}
+          <li class="page-break-avoid">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+              <a href="{{ project.url }}" class="text-[12px] font-semibold text-green-800 hover:underline">{{ project.name }}</a>
+              {% if project.stack %}<span class="font-mono text-[10px] font-medium text-stone-500">{{ project.stack }}</span>{% endif %}
+            </div>
+            <p class="mt-0.5 text-[11px] leading-relaxed text-pretty text-stone-600">{{ project.description }}</p>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="mt-3">
+    <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
+      <span class="font-mono text-[10px] text-green-600">06</span>
+      <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.skills | default('Skills') }}</span>
+    </h2>
+    {% set tier_styles = ['text-[13.5px] font-semibold text-stone-900', 'text-[11.5px] text-stone-600', 'text-[10.5px] text-stone-400'] %}
+    <div class="mt-2.5 space-y-1.5">
+      {% for tier, items in cv.skills %}
+        <div class="grid grid-cols-[6.5rem_1fr] gap-x-4">
+          <span class="pt-[3px] font-mono text-[10px] uppercase tracking-wide text-green-700">{{ tier }}</span>
+          <p class="{{ tier_styles[loop.index0] | default('text-[10.5px] text-stone-400') }} leading-relaxed">{{ items | join(' · ') }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if cv.languages %}
+    <section class="mt-3">
+      <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
+        <span class="font-mono text-[10px] text-green-600">07</span>
+        <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.languages | default('Languages') }}</span>
+      </h2>
+      <p class="mt-2 text-[11.5px] leading-relaxed text-pretty text-stone-600">
+        {% for language in cv.languages %}
+          {{ language.name }} (<span class="capitalize">{{ language.level }}</span>){% if not loop.last %} · {% endif %}
+        {% endfor %}
+      </p>
+    </section>
+  {% endif %}
+
+  <footer class="mt-auto text-center">
+    <p class="font-mono text-[9px] tracking-wide text-stone-400">{% if lang == 'no' %}sist oppdatert {% monthYearNo %} · bakseter.no/cv-no{% else %}last updated {% monthYear %} · bakseter.no/cv{% endif %}</p>
+  </footer>
+</div>

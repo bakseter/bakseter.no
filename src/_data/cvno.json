@@ -1,0 +1,99 @@
+{
+  "name": "Andreas Salhus Bakseter",
+  "title": "Seniorutvikler",
+  "location": "Oslo, Norge",
+  "email": "andreas@bakseter.no",
+  "github": "github.com/bakseter",
+  "linkedin": "linkedin.com/in/andreas-salhus-bakseter",
+  "summary": "Plattformutvikler med bakgrunn fra fullstack-utvikling. Automatiserer hele livssyklusen til programvare med robuste, sikre og brukervennlige plattformer. Trives best i Kubernetes- og Cloud Native-økosystemet. Akkurat nå fokusert på sikkerhet og sky- og AI-suverenitet.",
+  "sections": {
+    "experience": "Erfaring",
+    "education": "Utdanning",
+    "volunteering": "Frivillig arbeid",
+    "projects": "Utvalgte prosjekter",
+    "certifications": "Sertifiseringer",
+    "personalProjects": "Personlige prosjekter",
+    "skills": "Ferdigheter",
+    "languages": "Språk"
+  },
+  "experience": [
+    {
+      "role": "Seniorutvikler",
+      "company": "Computas AS",
+      "location": "Oslo, Norge",
+      "period": "2023 - nå",
+      "assignments": [
+        {
+          "client": "Hafslund",
+          "role": "Plattformutvikler",
+          "period": "2026 - nå",
+          "highlights": ["Suveren sky", "AI-infrastruktur"]
+        },
+        {
+          "client": "Elvia",
+          "role": "Plattformutvikler",
+          "period": "2023 - 2026",
+          "highlights": [
+            "Multi-cloud Kubernetes",
+            "CI/CD",
+            "GitOps",
+            "Supply chain security"
+          ]
+        }
+      ]
+    }
+  ],
+  "volunteering": [
+    {
+      "role": "Styremedlem",
+      "org": "echo, studentorganisasjon ved UiB",
+      "location": "Bergen, Norge",
+      "period": "2019 - 2020, 2021 - 2022"
+    },
+    {
+      "role": "Medgrunnlegger og leder",
+      "org": "echo Webkom",
+      "location": "Bergen, Norge",
+      "period": "2020 - 2023",
+      "details": "Grunnla undergruppen for webutikling i echo, og ledet utviklingen av echo.uib.no."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master i informatikk",
+      "school": "Universitetet i Bergen",
+      "period": "2018 - 2023",
+      "details": "Spesialisering i logikk"
+    }
+  ],
+  "skills": {
+    "Daglig": [
+      "Kubernetes",
+      "Cloud Native",
+      "Agentisk infrastruktur",
+      "Talos Linux",
+      "Tailscale",
+      "GitOps",
+      "Terraform",
+      "Go",
+      "Linux",
+      "Docker",
+      "Virtualisering",
+      "GitHub Actions"
+    ],
+    "Godt kjent med": ["React", "Typescript", "Postgres"],
+    "Kan": ["Kotlin", "Python"]
+  },
+  "certifications": [
+    {
+      "name": "Golden Kubestronaut",
+      "issuer": "Cloud Native Computing Foundation",
+      "description": "Permanent tittel for fagfolk som har bestått alle aktive Cloud Native-sertifiseringer",
+      "year": 2026
+    }
+  ],
+  "languages": [
+    { "name": "Norsk", "level": "morsmål" },
+    { "name": "Engelsk", "level": "flytende" }
+  ]
+}
