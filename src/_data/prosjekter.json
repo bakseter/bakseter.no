@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Homelab 🏡🚀",
+    "url": "https://github.com/bakseter/homelab",
+    "year": "2025",
+    "stack": "Proxmox, Talos Linux, OpenTofu, Argo CD",
+    "description": "Min Kubernetes-homelab"
+  },
+  {
+    "name": "We Have Platform At Home ☁️🚀",
+    "url": "https://github.com/bakseter/whpah",
+    "year": "2024",
+    "stack": "Hetzner Cloud, Terraform, Argo CD",
+    "description": "En utrolig billig Kubernetes-utviklerplattform i offentlig sky"
+  },
+  {
+    "name": "trivy-operator-metrics-exporter 🔐⬆️",
+    "url": "https://github.com/3lvia/trivy-operator-metrics-exporter",
+    "description": "Eksporterer Kubernetes-ressurser opprettet av Trivy Operator som individuelle metrikker",
+    "year": "2024",
+    "stack": "Go, Kubernetes, Trivy"
+  },
+  {
+    "name": "cli 🧑‍💻⚡",
+    "url": "https://github.com/3lvia/cli",
+    "description": "Kommandolinjeverktøy for å opprette, bygge og sikre Elvia-applikasjoner",
+    "year": "2024",
+    "stack": "Go, urfave/cli"
+  },
+  {
+    "name": "echo-web 💙💛",
+    "url": "https://github.com/echo-webkom/echo-web",
+    "stack": "React, Kotlin, Postgres, Sanity, Vercel, Azure, Terraform",
+    "year": "2021",
+    "description": "Nettsiden til studentorganisasjonen echo ved Universitetet i Bergen"
+  }
+]

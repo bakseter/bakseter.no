@@ -8,6 +8,12 @@ export default function (eleventyConfig) {
   eleventyConfig.setServerOptions({ watch: ['_site/css/**/*.css'] });
 
   eleventyConfig.addShortcode('year', () => String(new Date().getFullYear()));
+  eleventyConfig.addShortcode('monthYear', () =>
+    new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }),
+  );
+  eleventyConfig.addShortcode('monthYearNo', () =>
+    new Date().toLocaleDateString('nb-NO', { month: 'long', year: 'numeric', timeZone: 'UTC' }),
+  );
 
   // Filters
   eleventyConfig.addFilter('readableDate', (date) =>
