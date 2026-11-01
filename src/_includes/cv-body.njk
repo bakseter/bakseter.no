@@ -47,8 +47,8 @@
       {% if cv.location %}
         <li class="flex items-center gap-1.5">{{ icon(icons.location) }}{{ cv.location }}</li>
       {% endif %}
-      {% if cv.email %}
-        <li class="flex items-center gap-1.5">{{ icon(icons.mail) }}{% if '@' in cv.email %}<a href="mailto:{{ cv.email }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">{{ cv.email }}</a>{% else %}{{ cv.email }}{% endif %}</li>
+      {% if cv.email_start and cv.email_end %}
+        <li class="flex items-center gap-1.5">{{ icon(icons.mail) }}<a href="mailto:{{ cv.email_start }}@{{ cv.email_end }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">{{ cv.email_start }}@{{ cv.email_end }}</a></li>
       {% endif %}
       {% if cv.website %}
         <li class="flex items-center gap-1.5">{{ icon(icons.globe) }}<a href="https://{{ cv.website }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">{{ cv.website }}</a></li>
@@ -57,7 +57,7 @@
         <li class="flex items-center gap-1.5">{{ icon(icons.github) }}<a href="https://{{ cv.github }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">{{ cv.github }}</a></li>
       {% endif %}
       {% if cv.linkedin %}
-        <li class="flex items-center gap-1.5">{{ icon(icons.linkedin) }}<a href="https://{{ cv.linkedin }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">{{ cv.linkedin }}</a></li>
+        <li class="flex items-center gap-1.5">{{ icon(icons.linkedin) }}<a href="https://{{ cv.linkedin }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">LinkedIn</a></li>
       {% endif %}
     </ul>
   </header>
