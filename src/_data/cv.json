@@ -13,7 +13,8 @@
     "education": "Education",
     "volunteering": "Volunteering",
     "projects": "Highlighted Projects",
-    "certifications": "Certifications and talks",
+    "certifications": "Certifications",
+    "talks": "Talks",
     "personalProjects": "Personal Projects",
     "skills": "Skills",
     "languages": "Languages"
@@ -92,6 +93,16 @@
       "issuer": "Cloud Native Computing Foundation",
       "description": "Permanent title for professionals who have passed every active Cloud Native certification",
       "year": 2026
+    }
+  ],
+  "talks": [
+    {
+      "name": "\"Kubernetes Anywhere: How we are moving our platform away from Azure\"",
+      "year": 2026
+    },
+    {
+      "name": "\"Intro to Kubernetes and Cloud Native\"",
+      "year": 2025
     }
   ],
   "languages": [

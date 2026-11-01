@@ -13,7 +13,8 @@
     "education": "Utdanning",
     "volunteering": "Frivillig arbeid",
     "projects": "Utvalgte prosjekter",
-    "certifications": "Sertifiseringer og foredrag",
+    "certifications": "Sertifiseringer",
+    "talks": "Foredrag",
     "personalProjects": "Personlige prosjekter",
     "skills": "Ferdigheter",
     "languages": "Språk"
@@ -94,6 +95,7 @@
       "year": 2026
     }
   ],
+  "talks": [],
   "languages": [
     { "name": "Norsk", "level": "morsmål" },
     { "name": "Engelsk", "level": "flytende" }
