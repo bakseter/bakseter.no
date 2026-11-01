@@ -30,17 +30,17 @@
 
 <div class="sheet flex flex-col">
   <header>
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3 sm:gap-4">
       <img
         src="/avatar.png"
         alt="{% if lang == 'no' %}Bilde av {{ cv.name }}{% else %}Photo of {{ cv.name }}{% endif %}"
         width="64"
         height="64"
-        class="size-16 shrink-0 rounded-full object-cover ring-2 ring-stone-200"
+        class="size-14 shrink-0 rounded-full object-cover ring-2 ring-stone-200 sm:size-16"
       />
-      <div>
-        <h1 class="text-[34px] font-bold leading-none tracking-tight text-stone-900">{{ cv.name }}</h1>
-        <p class="mt-1.5 text-[14px] font-medium text-green-700">{{ cv.title }}</p>
+      <div class="min-w-0">
+        <h1 class="text-[26px] font-bold leading-tight tracking-tight text-stone-900 sm:text-[34px] sm:leading-none">{{ cv.name }}</h1>
+        <p class="mt-1 text-[13px] font-medium text-green-700 sm:mt-1.5 sm:text-[14px]">{{ cv.title }}</p>
       </div>
     </div>
     <ul class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] leading-none text-stone-500">
@@ -48,16 +48,16 @@
         <li class="flex items-center gap-1.5">{{ icon(icons.location) }}{{ cv.location }}</li>
       {% endif %}
       {% if cv.email %}
-        <li class="flex items-center gap-1.5">{{ icon(icons.mail) }}{% if '@' in cv.email %}<a href="mailto:{{ cv.email }}" class="hover:text-stone-900">{{ cv.email }}</a>{% else %}{{ cv.email }}{% endif %}</li>
+        <li class="flex items-center gap-1.5">{{ icon(icons.mail) }}{% if '@' in cv.email %}<a href="mailto:{{ cv.email }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">{{ cv.email }}</a>{% else %}{{ cv.email }}{% endif %}</li>
       {% endif %}
       {% if cv.website %}
-        <li class="flex items-center gap-1.5">{{ icon(icons.globe) }}<a href="https://{{ cv.website }}" class="hover:text-stone-900">{{ cv.website }}</a></li>
+        <li class="flex items-center gap-1.5">{{ icon(icons.globe) }}<a href="https://{{ cv.website }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">{{ cv.website }}</a></li>
       {% endif %}
       {% if cv.github %}
-        <li class="flex items-center gap-1.5">{{ icon(icons.github) }}<a href="https://{{ cv.github }}" class="hover:text-stone-900">{{ cv.github }}</a></li>
+        <li class="flex items-center gap-1.5">{{ icon(icons.github) }}<a href="https://{{ cv.github }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">{{ cv.github }}</a></li>
       {% endif %}
       {% if cv.linkedin %}
-        <li class="flex items-center gap-1.5">{{ icon(icons.linkedin) }}<a href="https://{{ cv.linkedin }}" class="hover:text-stone-900">{{ cv.linkedin }}</a></li>
+        <li class="flex items-center gap-1.5">{{ icon(icons.linkedin) }}<a href="https://{{ cv.linkedin }}" class="hover:text-stone-900 [overflow-wrap:anywhere]">{{ cv.linkedin }}</a></li>
       {% endif %}
     </ul>
   </header>
@@ -75,8 +75,8 @@
       <div class="mt-2.5 space-y-4">
         {% for job in cv.experience %}
           <article class="page-break-avoid">
-            <div class="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1">
-              <div>
+            <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
+              <div class="min-w-0">
                 <h3 class="text-[14px] font-semibold text-stone-900">{{ job.role }}{% if job.company %}<span class="font-normal text-stone-500"> · {{ job.company }}</span>{% endif %}</h3>
                 {% if job.location %}<p class="text-[11.5px] text-stone-500">{{ job.location }}</p>{% endif %}
               </div>
@@ -88,8 +88,8 @@
               <div class="mt-1.5 space-y-4 border-l-2 border-green-600/25 pl-4">
                 {% for assignment in job.assignments %}
                   <div class="page-break-avoid">
-                    <div class="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1">
-                      <h4 class="pt-0.5 text-[12.5px] font-semibold text-stone-900">{{ assignment.client }}{% if assignment.role %}<span class="font-normal text-stone-500"> — {{ assignment.role }}</span>{% endif %}</h4>
+                    <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
+                      <h4 class="min-w-0 pt-0.5 text-[12.5px] font-semibold text-stone-900">{{ assignment.client }}{% if assignment.role %}<span class="font-normal text-stone-500"> — {{ assignment.role }}</span>{% endif %}</h4>
                       <div>{{ period(assignment.period) }}</div>
                     </div>
                     {% if assignment.summary %}
@@ -115,8 +115,8 @@
       <div class="mt-2.5 space-y-4">
         {% for edu in cv.education %}
           <article class="page-break-avoid">
-            <div class="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1">
-              <div>
+            <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
+              <div class="min-w-0">
                 <h3 class="text-[14px] font-semibold text-stone-900">{{ edu.degree }}</h3>
                 <p class="text-[11.5px] text-stone-500">{{ edu.school }}</p>
                 {% if edu.details %}
@@ -140,8 +140,8 @@
       <div class="mt-2.5 space-y-3">
         {% for vol in cv.volunteering %}
           <article class="page-break-avoid">
-            <div class="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1">
-              <div>
+            <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
+              <div class="min-w-0">
                 <h3 class="text-[13px] font-semibold text-stone-900">{{ vol.role }}{% if vol.org %}<span class="font-normal text-stone-500"> · {{ vol.org }}</span>{% endif %}</h3>
                 {% if vol.location %}<p class="text-[11px] text-stone-500">{{ vol.location }}</p>{% endif %}
                 {% if vol.details %}<p class="mt-1 text-[11px] leading-relaxed text-pretty text-stone-600">{{ vol.details }}</p>{% endif %}
@@ -203,7 +203,7 @@
     {% set tier_styles = ['text-[13.5px] font-semibold text-stone-900', 'text-[11.5px] text-stone-600', 'text-[10.5px] text-stone-400'] %}
     <div class="mt-2.5 space-y-1.5">
       {% for tier, items in cv.skills %}
-        <div class="grid grid-cols-[6.5rem_1fr] gap-x-4">
+        <div class="grid grid-cols-1 gap-x-4 gap-y-0.5 sm:grid-cols-[6.5rem_1fr] sm:gap-y-0">
           <span class="pt-[3px] font-mono text-[10px] uppercase tracking-wide text-green-700">{{ tier }}</span>
           <p class="{{ tier_styles[loop.index0] | default('text-[10.5px] text-stone-400') }} leading-relaxed">{{ items | join(' · ') }}</p>
         </div>

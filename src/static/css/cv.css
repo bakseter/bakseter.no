@@ -30,10 +30,18 @@ a:hover {
     0 12px 32px rgb(0 0 0 / 0.12);
 }
 
-@media (max-width: 820px) {
+/* Full-width sheet once the 210mm sheet + page padding no longer fit (210mm ≈ 794px + md:px-6 48px) */
+@media screen and (max-width: 860px) {
   .sheet {
     width: 100%;
     min-height: 0;
+  }
+}
+
+/* Phones: drop the mm padding so text gets the full width */
+@media screen and (max-width: 640px) {
+  .sheet {
+    padding: 28px 18px;
   }
 }
 
