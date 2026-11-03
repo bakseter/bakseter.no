@@ -73,18 +73,24 @@
       "Kubernetes",
       "Cloud Native",
       "Azure",
-      "Google Cloud",
-      "Agentic infrastructure",
-      "Talos Linux",
-      "Tailscale",
-      "GitOps",
-      "Terraform",
+      "Sovergein Cloud",
+      "AI-infrastructure",
       "Go",
+      "Talos Linux",
+      "Networking",
+      "GitOps",
+      "Terraform/OpenTofu",
       "Linux",
       "Docker",
       "GitHub Actions"
     ],
-    "Comfortable": ["React", "Typescript", "Postgres"],
+    "Comfortable": [
+      "React",
+      "Typescript",
+      "Tailwind",
+      "Postgres",
+      "Google Cloud"
+    ],
     "Knows": ["Kotlin", "Python"]
   },
   "certifications": [

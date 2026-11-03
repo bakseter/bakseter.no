@@ -73,18 +73,24 @@
       "Kubernetes",
       "Cloud Native",
       "Azure",
-      "Google Cloud",
-      "Agentisk infrastruktur",
-      "Talos Linux",
-      "Tailscale",
-      "GitOps",
-      "Terraform",
+      "Suveren sky",
+      "AI-infrastruktur",
       "Go",
+      "Talos Linux",
+      "Nettverk",
+      "GitOps",
+      "Terraform/OpenTofu",
       "Linux",
       "Docker",
       "GitHub Actions"
     ],
-    "Godt kjent med": ["React", "Typescript", "Postgres"],
+    "Godt kjent med": [
+      "React",
+      "TypeScript",
+      "Tailwind",
+      "Postgres",
+      "Google Cloud"
+    ],
     "Kan": ["Kotlin", "Python"]
   },
   "certifications": [
