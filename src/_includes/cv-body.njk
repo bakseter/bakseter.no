@@ -45,7 +45,7 @@
         <p class="mt-1 text-[13px] font-medium text-green-700 sm:mt-1.5 sm:text-[14px]">{{ cv.title }}</p>
       </div>
     </div>
-    <ul class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] leading-none text-stone-500">
+    <ul class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] leading-none text-stone-500 print:mt-2">
       {% if cv.location %}
         <li class="flex items-center gap-1.5">{{ icon(icons.location) }}{{ cv.location }}</li>
       {% endif %}
@@ -65,16 +65,16 @@
   </header>
 
   {% if cv.summary %}
-    <p class="mt-3 text-[12px] leading-relaxed text-pretty text-stone-600">{{ cv.summary }}</p>
+    <p class="mt-3 text-[12px] leading-relaxed text-pretty text-stone-600 print:mt-2">{{ cv.summary }}</p>
   {% endif %}
 
   {% if cv.experience %}
-    <section class="mt-3">
+    <section class="mt-3 print:mt-2">
       <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
         <span class="font-mono text-[10px] text-green-600">{% set n = n + 1 %}{% if n < 10 %}0{{ n }}{% else %}{{ n }}{% endif %}</span>
         <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.experience | default('Experience') }}</span>
       </h2>
-      <div class="mt-2.5 space-y-4">
+      <div class="mt-2.5 space-y-4 print:mt-2 print:space-y-3">
         {% for job in cv.experience %}
           <article class="page-break-avoid">
             <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
@@ -86,8 +86,8 @@
             </div>
 
             {% if job.assignments %}
-              <p class="mt-3 font-mono text-[10px] uppercase tracking-wide text-green-700">{{ cv.sections.projects | default('Projects') }}</p>
-              <div class="mt-1.5 space-y-4 border-l-2 border-green-600/25 pl-4">
+              <p class="mt-3 font-mono text-[10px] uppercase tracking-wide text-green-700 print:mt-2">{{ cv.sections.projects | default('Projects') }}</p>
+              <div class="mt-1.5 space-y-4 border-l-2 border-green-600/25 pl-4 print:space-y-3">
                 {% for assignment in job.assignments %}
                   <div class="page-break-avoid">
                     <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
@@ -109,12 +109,12 @@
   {% endif %}
 
   {% if cv.education %}
-    <section class="mt-3">
+    <section class="mt-3 print:mt-2">
       <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
         <span class="font-mono text-[10px] text-green-600">{% set n = n + 1 %}{% if n < 10 %}0{{ n }}{% else %}{{ n }}{% endif %}</span>
         <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.education | default('Education') }}</span>
       </h2>
-      <div class="mt-2.5 space-y-4">
+      <div class="mt-2.5 space-y-4 print:mt-2 print:space-y-3">
         {% for edu in cv.education %}
           <article class="page-break-avoid">
             <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
@@ -134,12 +134,12 @@
   {% endif %}
 
   {% if cv.volunteering and cv.volunteering.length %}
-    <section class="mt-3">
+    <section class="mt-3 print:mt-2">
       <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
         <span class="font-mono text-[10px] text-green-600">{% set n = n + 1 %}{% if n < 10 %}0{{ n }}{% else %}{{ n }}{% endif %}</span>
         <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.volunteering | default('Volunteering') }}</span>
       </h2>
-      <div class="mt-2.5 space-y-3">
+      <div class="mt-2.5 space-y-3 print:mt-2">
         {% for vol in cv.volunteering %}
           <article class="page-break-avoid">
             <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
@@ -158,12 +158,12 @@
   {% endif %}
 
   {% if cv.certifications and cv.certifications.length %}
-    <section class="mt-3">
+    <section class="mt-3 print:mt-2">
       <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
         <span class="font-mono text-[10px] text-green-600">{% set n = n + 1 %}{% if n < 10 %}0{{ n }}{% else %}{{ n }}{% endif %}</span>
         <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.certifications | default('Certifications') }}</span>
       </h2>
-      <ul class="mt-2.5 space-y-2">
+      <ul class="mt-2.5 space-y-2 print:mt-2 print:space-y-1.5">
         {% for cert in cv.certifications %}
           <li class="page-break-avoid">
             <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
@@ -178,12 +178,12 @@
   {% endif %}
 
   {% if cv.talks and cv.talks.length %}
-    <section class="mt-3">
+    <section class="mt-3 print:mt-2">
       <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
         <span class="font-mono text-[10px] text-green-600">{% set n = n + 1 %}{% if n < 10 %}0{{ n }}{% else %}{{ n }}{% endif %}</span>
         <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.talks | default('Talks') }}</span>
       </h2>
-      <ul class="mt-2.5 space-y-2">
+      <ul class="mt-2.5 space-y-2 print:mt-2 print:space-y-1.5">
         {% for talk in cv.talks %}
           <li class="page-break-avoid">
             <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
@@ -197,13 +197,13 @@
     </section>
   {% endif %}
 
-  <section class="mt-3">
+  <section class="mt-3 print:mt-2">
     <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
       <span class="font-mono text-[10px] text-green-600">{% set n = n + 1 %}{% if n < 10 %}0{{ n }}{% else %}{{ n }}{% endif %}</span>
       <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.skills | default('Skills') }}</span>
     </h2>
     {% set tier_styles = ['text-[13.5px] font-semibold text-stone-900', 'text-[11.5px] text-stone-600', 'text-[10.5px] text-stone-400'] %}
-    <div class="mt-2.5 space-y-1.5">
+    <div class="mt-2.5 space-y-1.5 print:mt-2">
       {% for tier, items in cv.skills %}
         <div class="grid grid-cols-1 gap-x-4 gap-y-0.5 sm:grid-cols-[6.5rem_1fr] sm:gap-y-0">
           <span class="pt-[3px] font-mono text-[10px] uppercase tracking-wide text-green-700">{{ tier }}</span>
@@ -214,7 +214,7 @@
   </section>
 
   {% if cv.languages %}
-    <section class="mt-3">
+    <section class="mt-3 print:mt-2">
       <h2 class="flex items-baseline gap-2.5 border-b border-stone-200 pb-1">
         <span class="font-mono text-[10px] text-green-600">{% set n = n + 1 %}{% if n < 10 %}0{{ n }}{% else %}{{ n }}{% endif %}</span>
         <span class="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-stone-900">{{ cv.sections.languages | default('Languages') }}</span>
@@ -227,7 +227,7 @@
     </section>
   {% endif %}
 
-  <footer class="mt-auto text-center">
+  <footer class="mt-auto text-center print:mt-4">
     <p class="font-mono text-[9px] tracking-wide text-stone-400">{% if lang == 'no' %}bakseter.no/cv-no{% else %}bakseter.no/cv{% endif %}</p>
   </footer>
 </div>
