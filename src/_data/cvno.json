@@ -12,9 +12,8 @@
     "experience": "Erfaring",
     "education": "Utdanning",
     "volunteering": "Frivillig arbeid",
-    "projects": "Utvalgte prosjekter",
     "certifications": "Sertifiseringer",
-    "talks": "Foredrag",
+    "talks": "Utvalgte foredrag",
     "personalProjects": "Personlige prosjekter",
     "skills": "Ferdigheter",
     "languages": "Språk"
@@ -58,7 +57,7 @@
       "org": "echo Webkom",
       "location": "Bergen, Norge",
       "period": "2020 - 2023",
-      "details": "Grunnla undergruppen for webutikling i echo, og ledet utviklingen av echo.uib.no."
+      "details": "Grunnla undergruppen for webutikling i echo, og ledet utviklingen av echo.uib.no"
     }
   ],
   "education": [
@@ -95,7 +94,23 @@
       "year": 2026
     }
   ],
-  "talks": [],
+  "talks": [
+    {
+      "name": "Kubernetes hvor som helst: hvordan vi flytter hele plattformen vekk fra Azure",
+      "event": "Computas-dag",
+      "year": 2026
+    },
+    {
+      "name": "Intro til Kubernetes og Cloud Native",
+      "event": "Intern workshop Computas",
+      "year": 2025
+    },
+    {
+      "name": "Lær deg å deploye koden din til prod!",
+      "event": "Intern workshop Computas",
+      "year": 2024
+    }
+  ],
   "languages": [
     { "name": "Norsk", "level": "morsmål" },
     { "name": "Engelsk", "level": "flytende" }

@@ -14,8 +14,7 @@
     "volunteering": "Volunteering",
     "projects": "Highlighted Projects",
     "certifications": "Certifications",
-    "talks": "Talks",
-    "personalProjects": "Personal Projects",
+    "talks": "Highlighted Talks",
     "skills": "Skills",
     "languages": "Languages"
   },
@@ -58,7 +57,7 @@
       "org": "echo Webkom",
       "location": "Bergen, Norway",
       "period": "2020 - 2023",
-      "details": "Founded the web dev group at echo, and lead the development of echo.uib.no."
+      "details": "Founded the web dev group at echo, and lead the development of echo.uib.no"
     }
   ],
   "education": [
@@ -97,12 +96,19 @@
   ],
   "talks": [
     {
-      "name": "\"Kubernetes Anywhere: How we are moving our platform away from Azure\"",
+      "name": "Kubernetes Anywhere: How we are moving our platform away from Azure",
+      "event": "Computas Day",
       "year": 2026
     },
     {
-      "name": "\"Intro to Kubernetes and Cloud Native\"",
+      "name": "Intro to Kubernetes and Cloud Native",
+      "event": "Computas internal workshop",
       "year": 2025
+    },
+    {
+      "name": "How to deploy your code to prod",
+      "event": "Computas internal workshop",
+      "year": 2024
     }
   ],
   "languages": [
