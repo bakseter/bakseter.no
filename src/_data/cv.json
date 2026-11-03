@@ -72,6 +72,8 @@
     "Daily": [
       "Kubernetes",
       "Cloud Native",
+      "Azure",
+      "Google Cloud",
       "Agentic infrastructure",
       "Talos Linux",
       "Tailscale",
@@ -80,7 +82,6 @@
       "Go",
       "Linux",
       "Docker",
-      "Virtualization",
       "GitHub Actions"
     ],
     "Comfortable": ["React", "Typescript", "Postgres"],

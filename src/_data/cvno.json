@@ -72,6 +72,8 @@
     "Daglig": [
       "Kubernetes",
       "Cloud Native",
+      "Azure",
+      "Google Cloud",
       "Agentisk infrastruktur",
       "Talos Linux",
       "Tailscale",
@@ -80,7 +82,6 @@
       "Go",
       "Linux",
       "Docker",
-      "Virtualisering",
       "GitHub Actions"
     ],
     "Godt kjent med": ["React", "Typescript", "Postgres"],
