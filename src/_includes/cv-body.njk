@@ -40,8 +40,8 @@
         height="64"
         class="size-14 shrink-0 rounded-full object-cover ring-2 ring-stone-200 sm:size-16"
       />
-      <div class="min-w-0">
-        <h1 class="text-[26px] font-bold leading-tight tracking-tight text-stone-900 sm:text-[34px] sm:leading-none">{{ cv.name }}</h1>
+      <div class="min-w-0 flex-1">
+        <h1 class="text-[24px] font-bold leading-snug tracking-tight text-stone-900 sm:text-[34px] sm:leading-none">{{ cv.name }}</h1>
         <p class="mt-1 text-[13px] font-medium text-green-700 sm:mt-1.5 sm:text-[14px]">{{ cv.title }}</p>
       </div>
     </div>
@@ -77,12 +77,12 @@
       <div class="mt-2.5 space-y-4 print:mt-2 print:space-y-3">
         {% for job in cv.experience %}
           <article class="page-break-avoid">
-            <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
-              <div class="min-w-0">
+            <div class="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+              <div class="min-w-0 flex-1">
                 <h3 class="text-[14px] font-semibold text-stone-900">{{ job.role }}{% if job.company %}<span class="font-normal text-stone-500"> · {{ job.company }}</span>{% endif %}</h3>
                 {% if job.location %}<p class="text-[11.5px] text-stone-500">{{ job.location }}</p>{% endif %}
               </div>
-              <div class="pt-0.5">{{ period(job.period) }}</div>
+              <div class="ml-auto pt-0.5">{{ period(job.period) }}</div>
             </div>
 
             {% if job.assignments %}
@@ -90,9 +90,9 @@
               <div class="mt-1.5 space-y-4 border-l-2 border-green-600/25 pl-4 print:space-y-3">
                 {% for assignment in job.assignments %}
                   <div class="page-break-avoid">
-                    <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
-                      <h4 class="min-w-0 pt-0.5 text-[12.5px] font-semibold text-stone-900">{{ assignment.client }}{% if assignment.role %}<span class="font-normal text-stone-500"> — {{ assignment.role }}</span>{% endif %}</h4>
-                      <div>{{ period(assignment.period) }}</div>
+                    <div class="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+                      <h4 class="min-w-0 flex-1 pt-0.5 text-[12.5px] font-semibold text-stone-900">{{ assignment.client }}{% if assignment.role %}<span class="font-normal text-stone-500"> — {{ assignment.role }}</span>{% endif %}</h4>
+                      <div class="ml-auto">{{ period(assignment.period) }}</div>
                     </div>
                     {% if assignment.summary %}
                       <p class="mt-0.5 text-[11px] leading-relaxed text-pretty text-stone-600">{{ assignment.summary }}</p>
@@ -117,15 +117,15 @@
       <div class="mt-2.5 space-y-4 print:mt-2 print:space-y-3">
         {% for edu in cv.education %}
           <article class="page-break-avoid">
-            <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
-              <div class="min-w-0">
+            <div class="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+              <div class="min-w-0 flex-1">
                 <h3 class="text-[14px] font-semibold text-stone-900">{{ edu.degree }}</h3>
                 <p class="text-[11.5px] text-stone-500">{{ edu.school }}</p>
                 {% if edu.details %}
                   <p class="mt-1 text-[11px] leading-relaxed text-pretty text-stone-600">{{ edu.details }}</p>
                 {% endif %}
               </div>
-              <div class="pt-0.5">{{ period(edu.period) }}</div>
+              <div class="ml-auto pt-0.5">{{ period(edu.period) }}</div>
             </div>
           </article>
         {% endfor %}
@@ -142,13 +142,13 @@
       <div class="mt-2.5 space-y-3 print:mt-2">
         {% for vol in cv.volunteering %}
           <article class="page-break-avoid">
-            <div class="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[1fr_auto]">
-              <div class="min-w-0">
+            <div class="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+              <div class="min-w-0 flex-1">
                 <h3 class="text-[13px] font-semibold text-stone-900">{{ vol.role }}{% if vol.org %}<span class="font-normal text-stone-500"> · {{ vol.org }}</span>{% endif %}</h3>
                 {% if vol.location %}<p class="text-[11px] text-stone-500">{{ vol.location }}</p>{% endif %}
                 {% if vol.details %}<p class="mt-1 text-[11px] leading-relaxed text-pretty text-stone-600">{{ vol.details }}</p>{% endif %}
               </div>
-              <div class="pt-0.5">{{ period(vol.period) }}</div>
+              <div class="ml-auto pt-0.5">{{ period(vol.period) }}</div>
             </div>
             {% if vol.highlights %}{{ highlights_list(vol.highlights) }}{% endif %}
           </article>
@@ -168,7 +168,7 @@
           <li class="page-break-avoid">
             <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
               <span class="text-[12px] font-semibold text-stone-900">{{ cert.name }}</span>
-              {% if cert.issuer or cert.year %}<span class="font-mono text-[10px] font-medium text-stone-500">{{ cert.issuer }}{% if cert.issuer and cert.year %} · {% endif %}{{ cert.year }}</span>{% endif %}
+              {% if cert.issuer or cert.year %}<span class="ml-auto font-mono text-[10px] font-medium text-stone-500">{{ cert.issuer }}{% if cert.issuer and cert.year %} · {% endif %}{{ cert.year }}</span>{% endif %}
             </div>
             {% if cert.description %}<p class="mt-0.5 text-[11px] leading-relaxed text-pretty text-stone-600">{{ cert.description }}</p>{% endif %}
           </li>
@@ -188,7 +188,7 @@
           <li class="page-break-avoid">
             <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
               <span class="text-[12px] font-semibold text-stone-900">{{ talk.name }}</span>
-              {% if talk.event or talk.year %}<span class="font-mono text-[10px] font-medium text-stone-500">{{ talk.event }}{% if talk.event and talk.year %} · {% endif %}{{ talk.year }}</span>{% endif %}
+              {% if talk.event or talk.year %}<span class="ml-auto font-mono text-[10px] font-medium text-stone-500">{{ talk.event }}{% if talk.event and talk.year %} · {% endif %}{{ talk.year }}</span>{% endif %}
             </div>
             {% if talk.description %}<p class="mt-0.5 text-[11px] leading-relaxed text-pretty text-stone-600">{{ talk.description }}</p>{% endif %}
           </li>
