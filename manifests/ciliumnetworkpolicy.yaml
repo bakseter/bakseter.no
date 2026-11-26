@@ -43,12 +43,13 @@ spec:
               protocol: ANY
           rules:
             dns:
-              - matchName: 'alloy.monitoring.svc.cluster.local'
+              - matchName: 'opentelemetry-collector-gateway.otel.svc.cluster.local'
 
     - toEndpoints:
         - matchLabels:
-            k8s:io.kubernetes.pod.namespace: monitoring
-            app.kubernetes.io/name: alloy
+            k8s:io.kubernetes.pod.namespace: otel
+            app.kubernetes.io/instance: opentelemetry-collector
+            app.kubernetes.io/name: gateway
       toPorts:
         - ports:
             - port: '4317'
